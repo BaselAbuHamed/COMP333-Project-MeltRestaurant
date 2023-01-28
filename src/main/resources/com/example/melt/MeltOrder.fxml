@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1380.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.melt.MeltOrderController">
+   <children>
+      <Region prefHeight="40.0" prefWidth="1380.0" style="-fx-background-color: #6495ED;" />
+      <HBox prefHeight="750.0" prefWidth="1380.0" spacing="10.0" style="-fx-background-color: #6495ED;">
+         <children>
+            <VBox prefHeight="750.0" prefWidth="340.0" style="-fx-background-color: #B0C4DE;">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField prefHeight="45.0" prefWidth="280.0" />
+                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="60.0" text="Button" />
+                     </children>
+                  </HBox>
+               </children></VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="750.0" prefWidth="700.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="80.0" prefWidth="781.0" spacing="15.0" style="-fx-background-color: #B0C4DE;">
+                     <children>
+                        <Button fx:id="MeltBurgers" mnemonicParsing="false" onAction="#meltBurgersOnAction" prefHeight="50.0" prefWidth="100.0" style="-fx-background-radius: 20 20 0 20; -fx-background-color: #87CEFA;" text="Melt Burgers" />
+                        <Button fx:id="MeltSauces" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Sauces" />
+                        <Button fx:id="MeltDrinks" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" onAction="#meltDrinksOnAction" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Drinks" />
+                        <Button fx:id="MeltFries" layoutX="114.0" layoutY="10.0" mnemonicParsing="false" onAction="#meltFriesOnAction" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Fries" />
+                        <Button fx:id="MeltAllTheWay" layoutX="166.0" layoutY="10.0" mnemonicParsing="false" onAction="#meltAllTheWayOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt All The Way" />
+                        <Button fx:id="MeltExtras" layoutX="218.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Extras" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="79.0" prefWidth="752.0" spacing="15.0" style="-fx-background-color: #B0C4DE;">
+                     <children>
+                        <Button fx:id="MeltShakes" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Shakes" />
+                        <Button fx:id="MeltEmployeeMeals" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#meltEmployeeMealsOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Employee Meals" />
+                        <Button fx:id="MeltKidsMeal" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" onAction="#meltKidsMealOnAction" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Kids Meal" />
+                        <Button fx:id="MeltChickenBites" layoutX="114.0" layoutY="10.0" mnemonicParsing="false" onAction="#meltChickenBitesOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Chicken Bites" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="693.0" spacing="15.0">
+                     <children>
+                        <ImageView fx:id="image" fitHeight="50.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../homeIcon.png" />
+                           </image>
+                        </ImageView>
+                        <Text fx:id="textT" strokeType="OUTSIDE" strokeWidth="0.0">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <BorderPane fx:id="anchorPane" prefHeight="520.0" prefWidth="700.0" style="-fx-background-color: #B0C4DE;" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="751.0" prefWidth="340.0" spacing="10.0" style="-fx-background-color: #B0C4DE;">
+               <children>
+                  <TextField fx:id="TextFieldNum" editable="false" prefHeight="62.0" prefWidth="322.0" promptText="Enter Number " />
+                  <GridPane alignment="CENTER_LEFT" hgap="2.0" prefHeight="185.0" prefWidth="334.0" vgap="2.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Button fx:id="one" mnemonicParsing="false" onAction="#oneOnAction" prefHeight="60.0" prefWidth="110.0" text="1">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        <Button fx:id="two" mnemonicParsing="false" onAction="#twoOnAction" prefHeight="58.0" prefWidth="114.0" text="2" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        <Button fx:id="three" mnemonicParsing="false" onAction="#threeOnAction" prefHeight="49.0" prefWidth="114.0" text="3" GridPane.columnIndex="2">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        <Button fx:id="four" mnemonicParsing="false" onAction="#fourOnAction" prefHeight="65.0" prefWidth="120.0" text="4" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        <Button fx:id="five" mnemonicParsing="false" onAction="#fiveOnAction" prefHeight="55.0" prefWidth="138.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        <Button fx:id="six" mnemonicParsing="false" onAction="#sixOnAction" prefHeight="46.0" prefWidth="138.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        <Button fx:id="seven" mnemonicParsing="false" onAction="#sevenOnAction" prefHeight="63.0" prefWidth="117.0" text="7" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        <Button fx:id="eight" mnemonicParsing="false" onAction="#eightOnAction" prefHeight="72.0" prefWidth="156.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        <Button fx:id="nine" mnemonicParsing="false" onAction="#nineOnAction" prefHeight="48.0" prefWidth="109.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        <Button fx:id="zero" mnemonicParsing="false" onAction="#zeroOnAction" prefHeight="57.0" prefWidth="132.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        <Button fx:id="Clear" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="86.0" prefWidth="109.0" text="&lt;X" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        <Button fx:id="ClearAll" mnemonicParsing="false" onAction="#clearAllOnAction" prefHeight="55.0" prefWidth="143.0" text="C" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                     </children>
+                  </GridPane>
+                  <Button fx:id="Pay" mnemonicParsing="false" prefHeight="83.0" prefWidth="348.0" text="Pay" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>
