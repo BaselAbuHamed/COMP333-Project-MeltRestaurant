@@ -39,7 +39,6 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        connectDB();
         getData();
         getItemList();
         getFoodInfo();
@@ -51,33 +50,16 @@ public class HelloApplication extends Application {
         launch();
     }
 
-    public static void connectDB() throws ClassNotFoundException, SQLException {
-
-        String URL = "127.0.0.1";
-        String port = "3306";
-        String dbName = "melt2";
-        String dbURL = "jdbc:mysql://" + URL + ":" + port + "/" + dbName + "?verifyServerCertificate=false";
-        Properties p = new Properties();
-        String dbUsername = "root";
-        p.setProperty("user", dbUsername);
-        String dbPassword = "1232002";
-        p.setProperty("password", dbPassword);
-        p.setProperty("useSSL", "false");
-        p.setProperty("autoReconnect", "true");
-        Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection (dbURL, p);
-    }
-
     private static void getData() throws SQLException, ClassNotFoundException {
 
         String SQL;
         employees = new ArrayList<>();
 
-        connectDB();
+        Connector.a.connectDB();
         System.out.println("Connection established");
 
         SQL = "select * from Employees";
-        Statement stmt = con.createStatement();
+        Statement stmt = Connector.a.connectDB().createStatement();
         ResultSet rs = stmt.executeQuery(SQL);
 
 
@@ -89,7 +71,7 @@ public class HelloApplication extends Application {
         rs.close();
         stmt.close();
 
-        con.close();
+        Connector.a.connectDB().close();
         System.out.println("Connection closed" + employees.size());
 
     }
@@ -99,11 +81,11 @@ public class HelloApplication extends Application {
         String SQL;
         usersArrayList=new ArrayList<>();
 
-        connectDB();
+        Connector.a.connectDB();
         System.out.println("Connection established");
 
         SQL = "select * from Users";
-        Statement stmt = con.createStatement();
+        Statement stmt = Connector.a.connectDB().createStatement();
         ResultSet rs = stmt.executeQuery(SQL);
 
         while ( rs.next() )  {
@@ -112,7 +94,7 @@ public class HelloApplication extends Application {
         }
         rs.close();
         stmt.close();
-        con.close();
+        Connector.a.connectDB().close();
     }
 
     private static void getRules() throws SQLException, ClassNotFoundException {
@@ -120,11 +102,11 @@ public class HelloApplication extends Application {
         String SQL;
         rulesArrayList=new ArrayList<>();
 
-        connectDB();
+        Connector.a.connectDB();
         System.out.println("Connection established");
 
         SQL = "select * from roles";
-        Statement stmt = con.createStatement();
+        Statement stmt = Connector.a.connectDB().createStatement();
         ResultSet rs = stmt.executeQuery(SQL);
 
         while ( rs.next() )  {
@@ -132,7 +114,7 @@ public class HelloApplication extends Application {
         }
         rs.close();
         stmt.close();
-        con.close();
+        Connector.a.connectDB().close();
     }
 
     private static void getLogin() throws SQLException, ClassNotFoundException {
@@ -140,11 +122,11 @@ public class HelloApplication extends Application {
         String SQL;
         logInArrayList=new ArrayList<>();
 
-        connectDB();
+        Connector.a.connectDB();
         System.out.println("Connection established");
 
         SQL = "select * from Login";
-        Statement stmt = con.createStatement();
+        Statement stmt = Connector.a.connectDB().createStatement();
         ResultSet rs = stmt.executeQuery(SQL);
 
 
@@ -156,7 +138,7 @@ public class HelloApplication extends Application {
         rs.close();
         stmt.close();
 
-        con.close();
+        Connector.a.connectDB().close();
         // System.out.println("Connection closed" + employees.size());
 
     }
@@ -167,11 +149,11 @@ public class HelloApplication extends Application {
         String SQL;
         itemListArrayList=new ArrayList<>();
 
-        connectDB();
+        Connector.a.connectDB();
         System.out.println("Connection established");
 
         SQL = "select * from ItemList";
-        Statement stmt = con.createStatement();
+        Statement stmt = Connector.a.connectDB().createStatement();
         ResultSet rs = stmt.executeQuery(SQL);
 
 
@@ -182,7 +164,7 @@ public class HelloApplication extends Application {
         rs.close();
         stmt.close();
 
-        con.close();
+        Connector.a.connectDB().close();
         System.out.println("Connection closed" + employees.size());
 
     }
@@ -193,11 +175,11 @@ public class HelloApplication extends Application {
         String SQL;
         foodInfoArrayList=new ArrayList<>();
 
-        connectDB();
+        Connector.a.connectDB();
         System.out.println("Connection established");
 
         SQL = "select * from foodInfo";
-        Statement stmt = con.createStatement();
+        Statement stmt =Connector.a.connectDB().createStatement();
         ResultSet rs = stmt.executeQuery(SQL);
 
 
@@ -208,7 +190,7 @@ public class HelloApplication extends Application {
         rs.close();
         stmt.close();
 
-        con.close();
+        Connector.a.connectDB().close();
         System.out.println("Connection closed" + employees.size());
 
     }
@@ -219,11 +201,11 @@ public class HelloApplication extends Application {
         String SQL;
         itemsArrayList=new ArrayList<>();
 
-        connectDB();
+        Connector.a.connectDB();
         System.out.println("Connection established");
 
         SQL = "select * from Items";
-        Statement stmt = con.createStatement();
+        Statement stmt = Connector.a.connectDB().createStatement();
         ResultSet rs = stmt.executeQuery(SQL);
 
 
@@ -235,7 +217,7 @@ public class HelloApplication extends Application {
         rs.close();
         stmt.close();
 
-        con.close();
+        Connector.a.connectDB().close();
         // System.out.println("Connection closed" + employees.size());
 
     }
@@ -246,11 +228,11 @@ public class HelloApplication extends Application {
         String SQL;
         orderArrayList=new ArrayList<>();
 
-        connectDB();
+        Connector.a.connectDB();
         System.out.println("Connection established");
 
         SQL = "select * from Orders";
-        Statement stmt = con.createStatement();
+        Statement stmt = Connector.a.connectDB().createStatement();
         ResultSet rs = stmt.executeQuery(SQL);
 
 
@@ -263,7 +245,7 @@ public class HelloApplication extends Application {
         rs.close();
         stmt.close();
 
-        con.close();
+        Connector.a.connectDB().close();
         // System.out.println("Connection closed" + employees.size());
 
     }

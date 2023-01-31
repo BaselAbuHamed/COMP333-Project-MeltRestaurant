@@ -8,8 +8,8 @@
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" text="Crinkel Fries" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
-            <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" text="Premium Fries" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="crinkleFries" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" text="Crinkel Fries" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+            <Button fx:id="premiumFries" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" text="Premium Fries" textAlignment="CENTER" wrapText="true" />
             <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" text="Mix Premium &amp; sweet Fries" textAlignment="CENTER" wrapText="true" />
             <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" text="Sweet Fries" textAlignment="CENTER" wrapText="true" />
          </children>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -8,46 +10,35 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1380.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.melt.MeltOrderController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1380.0" style="-fx-background-color: #C0C0C0;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.melt.MeltOrderController">
    <children>
-      <Region prefHeight="40.0" prefWidth="1380.0" style="-fx-background-color: #6495ED;" />
-      <HBox prefHeight="750.0" prefWidth="1380.0" spacing="10.0" style="-fx-background-color: #6495ED;">
+      <HBox prefHeight="750.0" prefWidth="1380.0" spacing="10.0" style="-fx-background-color: #C0C0C0;">
          <children>
-            <VBox prefHeight="750.0" prefWidth="340.0" style="-fx-background-color: #B0C4DE;">
+            <VBox prefHeight="750.0" prefWidth="340.0" style="-fx-background-color: #808080; -fx-background-radius: 0 15 0 0;">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="99.0" prefWidth="333.0">
                      <children>
                         <TextField prefHeight="45.0" prefWidth="280.0" />
                         <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="60.0" text="Button" />
                      </children>
                   </HBox>
-               </children></VBox>
+                  <VBox fx:id="vBoxOrder" prefHeight="542.0" prefWidth="333.0" />
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" top="15.0" />
+               </padding></VBox>
             <VBox alignment="TOP_CENTER" prefHeight="750.0" prefWidth="700.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="80.0" prefWidth="781.0" spacing="15.0" style="-fx-background-color: #B0C4DE;">
-                     <children>
-                        <Button fx:id="MeltBurgers" mnemonicParsing="false" onAction="#meltBurgersOnAction" prefHeight="50.0" prefWidth="100.0" style="-fx-background-radius: 20 20 0 20; -fx-background-color: #87CEFA;" text="Melt Burgers" />
-                        <Button fx:id="MeltSauces" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Sauces" />
-                        <Button fx:id="MeltDrinks" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" onAction="#meltDrinksOnAction" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Drinks" />
-                        <Button fx:id="MeltFries" layoutX="114.0" layoutY="10.0" mnemonicParsing="false" onAction="#meltFriesOnAction" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Fries" />
-                        <Button fx:id="MeltAllTheWay" layoutX="166.0" layoutY="10.0" mnemonicParsing="false" onAction="#meltAllTheWayOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt All The Way" />
-                        <Button fx:id="MeltExtras" layoutX="218.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Extras" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="79.0" prefWidth="752.0" spacing="15.0" style="-fx-background-color: #B0C4DE;">
-                     <children>
-                        <Button fx:id="MeltShakes" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Shakes" />
-                        <Button fx:id="MeltEmployeeMeals" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#meltEmployeeMealsOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Employee Meals" />
-                        <Button fx:id="MeltKidsMeal" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" onAction="#meltKidsMealOnAction" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Kids Meal" />
-                        <Button fx:id="MeltChickenBites" layoutX="114.0" layoutY="10.0" mnemonicParsing="false" onAction="#meltChickenBitesOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #87CEFA; -fx-background-radius: 20 20 0 20;" text="Melt Chicken Bites" />
-                     </children>
-                  </HBox>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="164.0" prefWidth="693.0">
+                     <content>
+                        <VBox fx:id="vBoxForItemList" prefHeight="144.0" prefWidth="691.0" style="-fx-background-color: #808080;" />
+                     </content>
+                  </ScrollPane>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="693.0" spacing="15.0">
                      <children>
                         <ImageView fx:id="image" fitHeight="50.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
@@ -61,14 +52,33 @@
                            </font>
                         </Text>
                      </children>
+                     <padding>
+                        <Insets left="10.0" top="3.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                   </HBox>
-                  <BorderPane fx:id="anchorPane" prefHeight="520.0" prefWidth="700.0" style="-fx-background-color: #B0C4DE;" />
+                  <BorderPane fx:id="borderPane" prefHeight="520.0" prefWidth="679.0" style="-fx-background-color: #808080; -fx-background-radius: 15 15 0 0;">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </BorderPane>
                </children>
             </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="751.0" prefWidth="340.0" spacing="10.0" style="-fx-background-color: #B0C4DE;">
+            <VBox alignment="TOP_CENTER" prefHeight="751.0" prefWidth="340.0" spacing="10.0" style="-fx-background-color: #808080; -fx-background-radius: 15 0 0 0;">
                <children>
-                  <TextField fx:id="TextFieldNum" editable="false" prefHeight="62.0" prefWidth="322.0" promptText="Enter Number " />
-                  <GridPane alignment="CENTER_LEFT" hgap="2.0" prefHeight="185.0" prefWidth="334.0" vgap="2.0">
+                  <TextField fx:id="TextFieldNum" editable="false" prefHeight="62.0" prefWidth="322.0" promptText="Enter Number ">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin></TextField>
+                  <GridPane alignment="CENTER_LEFT" hgap="2.0" prefHeight="185.0" prefWidth="241.0" vgap="2.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -93,7 +103,7 @@
                            <font>
                               <Font size="20.0" />
                            </font></Button>
-                        <Button fx:id="four" mnemonicParsing="false" onAction="#fourOnAction" prefHeight="65.0" prefWidth="120.0" text="4" GridPane.rowIndex="1">
+                        <Button fx:id="four" mnemonicParsing="false" onAction="#fourOnAction" prefHeight="45.0" prefWidth="140.0" text="4" GridPane.rowIndex="1">
                            <font>
                               <Font size="20.0" />
                            </font></Button>
@@ -105,11 +115,11 @@
                            <font>
                               <Font size="20.0" />
                            </font></Button>
-                        <Button fx:id="seven" mnemonicParsing="false" onAction="#sevenOnAction" prefHeight="63.0" prefWidth="117.0" text="7" GridPane.rowIndex="2">
+                        <Button fx:id="seven" mnemonicParsing="false" onAction="#sevenOnAction" prefHeight="59.0" prefWidth="118.0" text="7" GridPane.rowIndex="2">
                            <font>
                               <Font size="20.0" />
                            </font></Button>
-                        <Button fx:id="eight" mnemonicParsing="false" onAction="#eightOnAction" prefHeight="72.0" prefWidth="156.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button fx:id="eight" mnemonicParsing="false" onAction="#eightOnAction" prefHeight="60.0" prefWidth="117.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font size="20.0" />
                            </font></Button>
@@ -117,11 +127,11 @@
                            <font>
                               <Font size="20.0" />
                            </font></Button>
-                        <Button fx:id="zero" mnemonicParsing="false" onAction="#zeroOnAction" prefHeight="57.0" prefWidth="132.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Button fx:id="zero" mnemonicParsing="false" onAction="#zeroOnAction" prefHeight="49.0" prefWidth="127.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font size="20.0" />
                            </font></Button>
-                        <Button fx:id="Clear" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="86.0" prefWidth="109.0" text="&lt;X" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                        <Button fx:id="Clear" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="52.0" prefWidth="122.0" text="&lt;X" GridPane.columnIndex="2" GridPane.rowIndex="3">
                            <font>
                               <Font size="20.0" />
                            </font></Button>
@@ -130,11 +140,23 @@
                               <Font size="20.0" />
                            </font></Button>
                      </children>
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
                   </GridPane>
-                  <Button fx:id="Pay" mnemonicParsing="false" prefHeight="83.0" prefWidth="348.0" text="Pay" />
+                  <Button fx:id="Pay" alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="381.0" text="Pay">
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </VBox.margin></Button>
                </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" top="10.0" />
+               </padding>
             </VBox>
          </children>
+         <VBox.margin>
+            <Insets top="50.0" />
+         </VBox.margin>
       </HBox>
    </children>
 </VBox>
