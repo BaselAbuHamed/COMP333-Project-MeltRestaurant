@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -21,22 +25,71 @@
          <children>
             <VBox prefHeight="750.0" prefWidth="340.0" style="-fx-background-color: #808080; -fx-background-radius: 0 15 0 0;">
                <children>
-                  <HBox prefHeight="99.0" prefWidth="333.0">
+                  <HBox prefHeight="46.0" prefWidth="313.0">
                      <children>
                         <TextField prefHeight="45.0" prefWidth="280.0" />
                         <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="60.0" text="Button" />
                      </children>
                   </HBox>
-                  <VBox fx:id="vBoxOrder" prefHeight="542.0" prefWidth="333.0" />
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="313.0" spacing="5.0">
+                     <children>
+                        <ComboBox fx:id="orderType" prefHeight="40.0" prefWidth="135.0" promptText="Order Type">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ComboBox>
+                        <ComboBox fx:id="paymentMethod" prefHeight="40.0" prefWidth="135.0" promptText="Payment Method">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ComboBox>
+                        <Button fx:id="buttonRemove" mnemonicParsing="false" onAction="#removeOnAction" prefHeight="40.0" prefWidth="46.0" text="remove">
+                           <font>
+                              <Font size="8.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <VBox fx:id="vBoxOrder" prefHeight="400.0" prefWidth="313.0">
+                     <children>
+                        <TableView fx:id="tableViewForOrder" onMouseClicked="#tableViewONMouseClicked" prefHeight="407.0" prefWidth="313.0">
+                          <columns>
+                            <TableColumn fx:id="columnItemName" prefWidth="192.0" text="Item Name" />
+                            <TableColumn fx:id="columnPrice" prefWidth="60.0" text="Price" />
+                              <TableColumn fx:id="columnQuantity" prefWidth="60.0" text="Quantity" />
+                          </columns>
+                        </TableView>
+                     </children></VBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total Price:    ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="textFieldForTotalPrice" alignment="CENTER" prefHeight="60.0" prefWidth="168.0" style="-fx-background-color: n;" text="00">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
                </children>
                <padding>
                   <Insets left="10.0" right="10.0" top="15.0" />
                </padding></VBox>
             <VBox alignment="TOP_CENTER" prefHeight="750.0" prefWidth="700.0">
                <children>
-                  <ScrollPane hbarPolicy="NEVER" prefHeight="164.0" prefWidth="693.0">
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="164.0" prefWidth="693.0" vbarPolicy="ALWAYS">
                      <content>
-                        <VBox fx:id="vBoxForItemList" prefHeight="144.0" prefWidth="691.0" style="-fx-background-color: #808080;" />
+                        <VBox fx:id="vBoxForItemList" alignment="CENTER" prefHeight="144.0" prefWidth="691.0" spacing="10.0" style="-fx-background-color: #808080;">
+                           <padding>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
                      </content>
                   </ScrollPane>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="693.0" spacing="15.0">
@@ -71,13 +124,16 @@
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="751.0" prefWidth="340.0" spacing="10.0" style="-fx-background-color: #808080; -fx-background-radius: 15 0 0 0;">
                <children>
-                  <TextField fx:id="TextFieldNum" editable="false" prefHeight="62.0" prefWidth="322.0" promptText="Enter Number ">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <VBox.margin>
-                        <Insets left="5.0" right="5.0" top="5.0" />
-                     </VBox.margin></TextField>
+                  <HBox prefHeight="63.0" prefWidth="324.0">
+                     <children>
+                        <TextField fx:id="TextFieldNum" editable="false" prefHeight="71.0" prefWidth="256.0" promptText="Enter Number ">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </TextField>
+                        <Button fx:id="saveAs" mnemonicParsing="false" prefHeight="63.0" prefWidth="134.0" text="Save" />
+                     </children>
+                  </HBox>
                   <GridPane alignment="CENTER_LEFT" hgap="2.0" prefHeight="185.0" prefWidth="241.0" vgap="2.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -144,7 +200,7 @@
                         <Insets left="5.0" right="5.0" />
                      </padding>
                   </GridPane>
-                  <Button fx:id="Pay" alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="381.0" text="Pay">
+                  <Button fx:id="Pay" alignment="CENTER" mnemonicParsing="false" onAction="#payOnAction" prefHeight="50.0" prefWidth="381.0" text="Pay">
                      <VBox.margin>
                         <Insets left="5.0" right="5.0" />
                      </VBox.margin></Button>

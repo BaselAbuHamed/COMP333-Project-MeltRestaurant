@@ -1,162 +1,180 @@
-package com.example.melt;
-
-import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.*;
-import javafx.stage.Stage;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
-
-public class Driver extends Application {
-
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        getItemList();
-        getItems();
-        launch(args);
-    }
-
-    public static ArrayList<ItemList> itemListArrayList;
-    public static ArrayList<Items> itemsArrayList;
-
-    @Override
-    public void start(Stage primaryStage) {
-
-        Group group = new Group();
-        Scene scene = new Scene(group,600 , 400);
-
-        AnchorPane anchorPane = new AnchorPane();
-        Scene sceneForAP = new Scene(anchorPane);
-        AtomicReference<HBox> hBox = new AtomicReference<>(new HBox());
-        HBox hBox1 = new HBox();
-        VBox vBoxForPrimaryScene = new VBox();
-        AtomicReference<VBox> vBoxForAP = new AtomicReference<>(new VBox());
-
-        ObservableList<ItemList> itemList= FXCollections.observableArrayList(itemListArrayList);
-        ObservableList<Items> items= FXCollections.observableArrayList(itemsArrayList);
-        AtomicInteger buttonCount = new AtomicInteger();
-        AtomicInteger buttonF = new AtomicInteger();
-
-        for (int i = 0; i < itemList.size(); i++) {
-
-            Button button = new Button(itemList.get(i).getMenuTitle());
-            button.setPrefWidth(100);
-            button.setPrefHeight(50);
-            int finalI = i;
-
-            button.setOnAction(event -> {
-                anchorPane.getChildren().clear();
-                hBox.set(new HBox());
-                System.out.println(itemList.get(finalI).getMenuTitle()+ " clicked");
-
-                for (int j = 0; j < items.size(); j++) {
-
-                    int finalJ = j;
-                    if(itemList.get(finalI).getMenuId()==items.get(finalJ).getMenuId()){
-
-                        Button b1 = new Button(items.get(finalJ).getItemTitle());
-                        b1.setPrefWidth(200);
-                        b1.setPrefHeight(50);
-                        b1.setOnAction(actionEvent -> System.out.println(items.get(finalJ).getItemTitle()+ " clicked"));
-
-                        buttonCount.getAndIncrement();
-                        hBox.get().getChildren().add(b1);
-
-                        if (buttonCount.get() == 5) {
-                            vBoxForAP.get().getChildren().add(hBox.get());
-                            hBox.set(new HBox());
-                            buttonCount.set(0);
-                        }
-                    }
-                }
-
-                if (hBox.get().getChildren().size() > 0){
-                    vBoxForAP.get().getChildren().add(hBox.get());
-                    buttonCount.set(0);
-                }
-
-                Button back = new Button("back");
-                back.setPrefWidth(200);
-                back.setPrefHeight(50);
-                vBoxForAP.get().getChildren().add(back);
-
-                back.setOnAction(actionEvent -> {
-
-                    vBoxForAP.set(new VBox());
-                    primaryStage.setScene(scene);
-                    primaryStage.show();
-                });
-
-                anchorPane.getChildren().add(vBoxForAP.get());
-                primaryStage.setTitle("Basel Application");
-                primaryStage.setScene(sceneForAP);
-                primaryStage.show();
-
-            });
-
-            vBoxForPrimaryScene.getChildren().add(button);
-        }
-
-        group.getChildren().add(vBoxForPrimaryScene);
-        primaryStage.setTitle("Basel Application");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-    private static void getItemList() throws SQLException, ClassNotFoundException {
-        // TODO Auto-generated method stub
-
-        String SQL;
-        itemListArrayList=new ArrayList<>();
-
-        Connector.a.connectDB();
-        System.out.println("Connection established");
-
-        SQL = "select * from ItemList";
-        Statement stmt = Connector.a.connectDB().createStatement();
-        ResultSet rs = stmt.executeQuery(SQL);
-
-
-        while ( rs.next() )  {
-            itemListArrayList.add(new ItemList(rs.getInt(1),rs.getString(2)));
-        }
-        System.out.println(itemListArrayList.toString());
-        rs.close();
-        stmt.close();
-
-        Connector.a.connectDB().close();
-    }
-    private static void getItems() throws SQLException, ClassNotFoundException {
-
-        String SQL;
-        itemsArrayList=new ArrayList<>();
-
-        Connector.a.connectDB();
-        System.out.println("Connection established");
-
-        SQL = "select * from Items";
-        Statement stmt = Connector.a.connectDB().createStatement();
-        ResultSet rs = stmt.executeQuery(SQL);
-
-
-        while ( rs.next() )  {
-            itemsArrayList.add(new Items(rs.getInt(1),rs.getString(2),
-                    rs.getInt(3),rs.getInt(4),rs.getInt(5)));
-        }
-        System.out.println(itemsArrayList.toString());
-        rs.close();
-        stmt.close();
-
-        Connector.a.connectDB().close();
-        // System.out.println("Connection closed" + employees.size());
-
-    }
-}
+//package com.example.database2try;
+//import javafx.collections.FXCollections;
+//import javafx.collections.ObservableList;
+//import javafx.event.ActionEvent;
+//import javafx.fxml.FXML;
+//import javafx.fxml.Initializable;
+//import javafx.scene.control.ChoiceBox;
+//import javafx.scene.control.TableColumn;
+//import javafx.scene.control.TableView;
+//import javafx.scene.control.TextField;
+//import javafx.scene.control.cell.PropertyValueFactory;
+//import javafx.scene.control.cell.TextFieldTableCell;
+//import javafx.util.converter.IntegerStringConverter;
+//import java.net.URL;
+//import java.sql.*;
+//import java.util.ArrayList;
+//import java.util.Properties;
+//import java.util.ResourceBundle;
+//import static com.example.database2try.MeltBurgerController.orderN;
+//public class TableViewController implements Initializable {
+//    private static Connection con;
+//    double sum;
+//    @FXML
+//    private TextField cityTextField;
+//    ObservableList<NewOrder> observableList2= FXCollections.observableArrayList(orderN);
+//    @FXML
+//    private TableColumn<NewOrder, Integer> Quantity;
+//    @FXML
+//    private TableColumn<NewOrder, Integer> itemId;
+//
+//    @FXML
+//    private TableColumn<NewOrder, String> itemName;
+//
+//    @FXML
+//    private TableColumn<NewOrder, Double> itemPrice;
+//    @FXML
+//    private TextField phoneNumberTF;
+//    @FXML
+//
+//    private TextField TotalTF;
+//    @FXML
+//    private ChoiceBox<String> orderType;
+//
+//    @FXML
+//    private ChoiceBox<String> paymentMethod;
+//
+//    @FXML
+//    protected   TableView<NewOrder> tableView2=new TableView<>();
+//
+//    @Override
+//    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        //   cityTextField.setDisable(true);
+//        itemName.setCellValueFactory(new PropertyValueFactory<NewOrder,String>("Title"));
+//        itemPrice.setCellValueFactory(new PropertyValueFactory<NewOrder,Double>("Price"));
+//        Quantity.setCellValueFactory(new PropertyValueFactory<NewOrder,Integer>("quantity"));
+//        itemId.setCellValueFactory(new PropertyValueFactory<NewOrder,Integer>("itemId"));
+//        tableView2.setEditable(true);
+//        tableView2.setItems(observableList2);
+//        Quantity.setCellFactory(TextFieldTableCell.<NewOrder,Integer>forTableColumn(new IntegerStringConverter()));//to make the quantity editable
+//
+//
+//        Quantity.setOnEditCommit((TableColumn.CellEditEvent<NewOrder, Integer> t) -> {
+//            ((NewOrder) t.getTableView().getItems().get(t.getTablePosition().getRow())).setQuantity(t.getNewValue());
+//        });
+//
+//
+//        sum=0.0;
+//        for(int i=0;i<orderN.size();i++){
+//            sum+=orderN.get(i).getPrice()*orderN.get(i).getQuantity();
+//        }
+//        TotalTF.setText(String.valueOf(sum));
+//
+//
+//        orderType.getItems().add("In");
+//        orderType.getItems().add("Out");
+//        paymentMethod.getItems().add("Cash");
+//        paymentMethod.getItems().add("Visa");
+//    }
+//
+//
+//
+//    @FXML
+//    void sumOnActions(ActionEvent event) {
+//        sum=0.0;
+//        for(int i=0;i<orderN.size();i++){
+//            sum+=orderN.get(i).getPrice()*orderN.get(i).getQuantity();
+//        }
+//        TotalTF.setText(String.valueOf(sum));
+//    }
+//
+//    @FXML
+//    void QuantityOnEdit(ActionEvent event) {
+//
+//    }
+//
+//    @FXML
+//    void deleteOnAction(ActionEvent event) {
+//        int index=tableView2.getSelectionModel().getSelectedIndex();
+//        String requiredTitle=observableList2.get(index).getTitle();
+//        sum-=(tableView2.getItems().get(index).getPrice()*tableView2.getItems().get(index).getQuantity());
+//        TotalTF.setText(String.valueOf(sum));
+//        tableView2.getItems().remove(index);
+//        orderN.remove(index);
+//    }
+//
+//
+//    @FXML
+//    void deleteAllOnAction(ActionEvent event) {
+//        orderN.clear();
+//        observableList2.clear();
+//        // tableView2.getItems().clear();
+//
+//
+//    }
+//
+//    @FXML
+//    void payOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+//        String SQL;
+//        if(orderType.getValue().equals("Out")) {
+//            SQL= "insert into orders(orderType,totalPrice,paymentMethod,address,phoneNumber,userId) values('" + orderType.getValue() + "'," + sum + ",'" + paymentMethod.getValue() +
+//                    "','" + cityTextField.getText() + "'," + Integer.parseInt(phoneNumberTF.getText()) + "," + 1 + ");";
+//        }
+//
+//        else {
+//            SQL= "insert into orders(orderType,totalPrice,paymentMethod,address,phoneNumber,userId) values('" + orderType.getValue() + "'," + sum + ",'" + paymentMethod.getValue() +
+//                    "','" + " " + "'," + Integer.parseInt(phoneNumberTF.getText()) + "," + 1 + ");";
+//        }
+//        connectDB();
+//        Statement stmt = con.createStatement();
+//        stmt.executeUpdate(SQL);
+//        stmt.close();
+//        con.close();
+//////////////////////////////////////////////////////
+//        connectDB();
+//        ArrayList<Order> tmpForOrders=new ArrayList<Order>();
+//        //now i want to tke order id, item id, quantity, how to get the first two???????????????????
+//        SQL = "select * from orders";
+//        stmt = con.createStatement();
+//        ResultSet rs = stmt.executeQuery(SQL);
+//        while ( rs.next() )  {
+//            tmpForOrders.add(new Order(rs.getInt(1),rs.getString(2),
+//                    rs.getDouble(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7)));
+//        }
+//        rs.close();
+//        stmt.close();
+//        con.close();
+/////////////////////////////////////////////////////////
+//
+//        connectDB();
+//        //now it's time to add the orderid itemId and quantity to (orders_items)
+//        for(int i=0;i<observableList2.size();i++){
+//            SQL= "insert into orders_items values("+tmpForOrders.get(tmpForOrders.size()-1).getOrderId() + "," +observableList2.get(i).getItemId()+"," +observableList2.get(i).getQuantity()+","+observableList2.get(i).getPrice()+");";
+//
+//            stmt = con.createStatement();
+//            stmt.executeUpdate(SQL);
+//        }
+//        stmt.close();
+//        con.close();        orderN.clear();
+//        observableList2.clear();
+//    }
+//
+//    public static void connectDB() throws ClassNotFoundException, SQLException {
+//        String URL = "127.0.0.1";
+//        String port = "3306";
+//        String dbName = "melt2";
+//        String dbURL = "jdbc:mysql://" + URL + ":" + port + "/" + dbName + "?verifyServerCertificate=false";
+//        Properties p = new Properties();
+//        String dbUsername = "root";
+//        p.setProperty("user", dbUsername);
+//        String dbPassword = "jj137157177jj";
+//        p.setProperty("password", dbPassword);
+//        p.setProperty("useSSL", "false");
+//        p.setProperty("autoReconnect", "true");
+//        Class.forName("com.mysql.jdbc.Driver");
+//
+//        con = DriverManager.getConnection(dbURL, p);
+//
+//    }
+//
+//}

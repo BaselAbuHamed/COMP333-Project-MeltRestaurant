@@ -23,7 +23,6 @@ public class HelloApplication extends Application {
     public static ArrayList<Rules> rulesArrayList;
     public static ArrayList<Items> itemsArrayList;
     public static ArrayList<ItemList> itemListArrayList;
-    public static ArrayList<FoodInfo> foodInfoArrayList;
     public static ArrayList<Order> orderArrayList;
 
     @Override
@@ -32,7 +31,7 @@ public class HelloApplication extends Application {
         Parent root=FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltOrder.fxml")));
         Scene scene = new Scene(root);
         stage.setTitle("Hello!");
-        stage.setMaximized(true);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
@@ -41,7 +40,6 @@ public class HelloApplication extends Application {
 
         getData();
         getItemList();
-        getFoodInfo();
         getItems();
         getRules();
         getUsers();
@@ -169,32 +167,6 @@ public class HelloApplication extends Application {
 
     }
 
-    private static void getFoodInfo() throws SQLException, ClassNotFoundException {
-        // TODO Auto-generated method stub
-
-        String SQL;
-        foodInfoArrayList=new ArrayList<>();
-
-        Connector.a.connectDB();
-        System.out.println("Connection established");
-
-        SQL = "select * from foodInfo";
-        Statement stmt =Connector.a.connectDB().createStatement();
-        ResultSet rs = stmt.executeQuery(SQL);
-
-
-        while ( rs.next() )  {
-            foodInfoArrayList.add(new FoodInfo(rs.getInt(1),rs.getString(2)));
-        }
-        System.out.println(foodInfoArrayList.toString());
-        rs.close();
-        stmt.close();
-
-        Connector.a.connectDB().close();
-        System.out.println("Connection closed" + employees.size());
-
-    }
-
     private static void getItems() throws SQLException, ClassNotFoundException {
         // TODO Auto-generated method stub
 
@@ -211,7 +183,7 @@ public class HelloApplication extends Application {
 
         while ( rs.next() )  {
             itemsArrayList.add(new Items(rs.getInt(1),rs.getString(2),
-                    rs.getInt(3),rs.getInt(4),rs.getInt(5)));
+                    rs.getInt(3),rs.getInt(4)));
         }
         System.out.println(itemsArrayList.toString());
         rs.close();

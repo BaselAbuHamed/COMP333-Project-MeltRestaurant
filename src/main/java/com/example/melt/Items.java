@@ -4,16 +4,14 @@ public class Items {
     private int itemId;
     private String itemTitle;
     private double itemPrice;
-    private int foodInfoId;
     private int menuId;
 
     public Items(){}
 
-    public Items(int itemId, String itemTitle, double itemPrice, int foodInfoId, int menuId) {
+    public Items(int itemId, String itemTitle, double itemPrice, int menuId) {
         this.itemId = itemId;
         this.itemTitle = itemTitle;
         this.itemPrice = itemPrice;
-        this.foodInfoId = foodInfoId;
         this.menuId = menuId;
     }
 
@@ -41,14 +39,6 @@ public class Items {
         this.itemPrice = itemPrice;
     }
 
-    public int getFoodInfoId() {
-        return foodInfoId;
-    }
-
-    public void setFoodInfoId(int foodInfoId) {
-        this.foodInfoId = foodInfoId;
-    }
-
     public int getMenuId() {
         return menuId;
     }
@@ -63,7 +53,6 @@ public class Items {
                 "itemId=" + itemId +
                 ", itemTitle='" + itemTitle + '\'' +
                 ", itemPrice=" + itemPrice +
-                ", foodInfoId=" + foodInfoId +
                 ", menuId=" + menuId +
                 '}';
     }
