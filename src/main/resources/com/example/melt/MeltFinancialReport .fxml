@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="619.0" prefWidth="674.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.melt.Driver">
+   <children>
+      <PieChart fx:id="pieChart" clockwise="false" prefHeight="619.0" prefWidth="674.0" title="Pie Chart" />
+   </children>
+</AnchorPane>

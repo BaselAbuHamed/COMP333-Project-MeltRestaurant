@@ -11,12 +11,10 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.Properties;
 
 public class HelloApplication extends Application {
 
     @FXML
-    private static Connection con;
     public static ArrayList<Employees> employees;
     public static ArrayList<LogIn> logInArrayList;
     public static ArrayList<Users> usersArrayList;
@@ -28,7 +26,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        Parent root=FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltOrder.fxml")));
+        Parent root=FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltFinancialReport .fxml")));
         Scene scene = new Scene(root);
         stage.setTitle("Hello!");
         stage.setResizable(false);
@@ -195,8 +193,6 @@ public class HelloApplication extends Application {
     }
 
     private static void getOrders() throws SQLException, ClassNotFoundException {
-        // TODO Auto-generated method stub
-
         String SQL;
         orderArrayList=new ArrayList<>();
 
@@ -212,8 +208,6 @@ public class HelloApplication extends Application {
             orderArrayList.add(new Order(rs.getInt(1),rs.getString(2),
                     rs.getDouble(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7)));
         }
-        System.out.println("printing odredrs arrray listtttttttttttttt");
-        System.out.println(orderArrayList.toString());
         rs.close();
         stmt.close();
 
