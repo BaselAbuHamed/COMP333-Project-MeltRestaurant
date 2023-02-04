@@ -45,4 +45,42 @@ public class MeltViewController {
         primaryStage.setMaximized(true);
         primaryStage.show();
     }
+
+    @FXML
+    void totalOnAction(ActionEvent event) throws IOException {
+        Parent root= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltFinancialReportTotal.fxml")));
+        Scene scene=new Scene(root);
+        Stage primaryStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
+        primaryStage.show();
+    }
+    @FXML
+    void monthlyOnAction(ActionEvent event) throws IOException {
+        Parent root= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltFinancialReportMonthly.fxml")));
+        Scene scene=new Scene(root);
+        Stage primaryStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
+        primaryStage.show();
+    }
+    @FXML
+    void dailyOnAction(ActionEvent event) throws IOException {
+        Parent root= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltFinancialReportDaily.fxml")));
+        Scene scene=new Scene(root);
+        Stage primaryStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
+        primaryStage.show();
+    }
+
+    @FXML
+    void yearlyOnAction(ActionEvent event) throws IOException {
+        Parent root= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltFinancialReportYearly.fxml")));
+        Scene scene=new Scene(root);
+        Stage primaryStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
+        primaryStage.show();
+    }
 }

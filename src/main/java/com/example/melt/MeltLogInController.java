@@ -23,7 +23,12 @@ import java.util.Properties;
 import static com.example.melt.HelloApplication.logInArrayList;
 import static com.example.melt.HelloApplication.usersArrayList;
 
+
 public class MeltLogInController {
+
+    public static int currentUserId =0;
+    public static int currentUserRole=0;
+    public static String currentUserName ="";
 
     public static ObservableList<LogIn> logIns= FXCollections.observableArrayList(logInArrayList);
 
@@ -48,6 +53,7 @@ public class MeltLogInController {
 
     @FXML
     void LogIn(ActionEvent event) throws ClassNotFoundException, IOException, SQLException {
+
         loginDetection.setDisable(true);
         loginDetection.setVisible(false);
 
@@ -66,12 +72,15 @@ public class MeltLogInController {
                 }
                 loginIdAutoIncreament++;
 
+                currentUserId=usersArrayList.get(i).getUserId();
+                currentUserRole=usersArrayList.get(i).getUserRuleId();
+                currentUserName=usersArrayList.get(i).getUserName();
+
                 Parent root= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltView.fxml")));
                 Scene scene=new Scene(root);
                 Stage primaryStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
                 primaryStage.setScene(scene);
                 primaryStage.setMaximized(true);
-                primaryStage.setFullScreen(true);
                 primaryStage.show();
 
                 for (Users users : usersArrayList) {

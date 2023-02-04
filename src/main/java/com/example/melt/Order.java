@@ -1,5 +1,7 @@
 package com.example.melt;
 
+import java.util.Date;
+
 public class Order {
     private int orderId;
     private String OrderType;
@@ -8,17 +10,22 @@ public class Order {
     private String address;
     private int phoneNumber;
     private int userId;
+    private Date order_date;
 
-    public Order(int orderId, String orderType, double totalPrice, String paymentMethod, String address, int phoneNumber, int userId) {
+    public Order(int orderId, String orderType, double totalPrice, String paymentMethod, String address, int phoneNumber, Date order_date, int userId) {
         this.orderId = orderId;
         OrderType = orderType;
         this.totalPrice = totalPrice;
         this.paymentMethod = paymentMethod;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.order_date=order_date;
         this.userId = userId;
     }
 
+    public Order(Date order_date) {
+        this.order_date = order_date;
+    }
     public int getOrderId() {
         return orderId;
     }
@@ -86,5 +93,13 @@ public class Order {
                 ", phoneNumber=" + phoneNumber +
                 ", userId=" + userId +
                 '}';
+    }
+
+    public Date getOrder_date() {
+        return order_date;
+    }
+
+    public void setOrder_date(Date order_date) {
+        this.order_date = order_date;
     }
 }

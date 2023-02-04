@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -26,9 +25,9 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        Parent root=FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltFinancialReport .fxml")));
+        Parent root=FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltLogIn.fxml")));
         Scene scene = new Scene(root);
-        stage.setTitle("Hello!");
+        stage.setTitle("Melt Application");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -206,14 +205,13 @@ public class HelloApplication extends Application {
 
         while ( rs.next() )  {
             orderArrayList.add(new Order(rs.getInt(1),rs.getString(2),
-                    rs.getDouble(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7)));
+                    rs.getDouble(3),rs.getString(4),rs.getString(5),
+                    rs.getInt(6),rs.getDate(7),rs.getInt(8)));
         }
         rs.close();
         stmt.close();
 
         Connector.a.connectDB().close();
-        // System.out.println("Connection closed" + employees.size());
-
     }
 
 }

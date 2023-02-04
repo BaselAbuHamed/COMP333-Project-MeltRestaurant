@@ -9,16 +9,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
 
 import java.io.IOException;
@@ -27,13 +30,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.example.melt.HelloApplication.itemListArrayList;
 import static com.example.melt.HelloApplication.itemsArrayList;
-
+import static com.example.melt.MeltLogInController.currentUserName;
 
 public class MeltOrderController implements Initializable {
 
@@ -122,6 +126,12 @@ public class MeltOrderController implements Initializable {
     private Button buttonRemove;
 
     @FXML
+    private Button back;
+
+    @FXML
+    private Label labelNameUser;
+
+    @FXML
     void oneOnAction(ActionEvent event) {
         TextFieldNum.appendText("1");
     }
@@ -192,6 +202,17 @@ public class MeltOrderController implements Initializable {
 
     }
 
+
+    @FXML
+    void backOnAction(ActionEvent event) throws IOException {
+        Parent root= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltView.fxml")));
+        Scene scene=new Scene(root);
+        Stage primaryStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
+        primaryStage.show();
+    }
+
     @FXML
     void tableViewONMouseClicked(MouseEvent event) {
 
@@ -226,31 +247,43 @@ public class MeltOrderController implements Initializable {
     void payOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String SQL;
 
+        Date date=new Date();
+        Order o=new Order(date);
+
+        String s = String.valueOf((o.getOrder_date().getYear()+230000)+
+                '-' + o.getOrder_date().getMonth()+
+                '-' + (o.getOrder_date().getDay()-16));
+
+        System.out.println(s);
+
         if(orderType.getValue().equals("OUT")) {
-            SQL= "insert into orders(orderType,totalPrice,paymentMethod,address,phoneNumber,userId) values('" +
+            SQL= "insert into orders(orderType,totalPrice,paymentMethod,address,phoneNumber,order_date,userId) values('" +
                     orderType.getValue() +
                     "'," + Double.parseDouble(textFieldForTotalPrice.getText()) +
                     ",'" + paymentMethod.getValue() +
                     "','" + "aaa" +
                     "'," + Integer.parseInt("0000") +
+                    ","+s +
                     "," + 1 + ");";
         }
 
         else {
-            SQL= "insert into orders(orderType,totalPrice,paymentMethod,address,phoneNumber,userId) values('" +
+            SQL= "insert into orders(orderType,totalPrice,paymentMethod,address,phoneNumber,order_date,userId) values('" +
                     orderType.getValue() +
                     "'," + Double.parseDouble(textFieldForTotalPrice.getText()) +
                     ",'" + paymentMethod.getValue() +
                     "','" + " " +
                     "'," + Integer.parseInt("111") +
+                    ","+s +
                     "," + 1 + ");";
         }
         Connector.a.connectDB();
-
+        textFieldForTotalPrice.setText("00");
         Statement stmt = Connector.a.connectDB().createStatement();
         stmt.executeUpdate(SQL);
         stmt.close();
         Connector.a.connectDB().close();
+
 ////////////////////////////////////////////////////
         Connector.a.connectDB();
         ArrayList<Order> tmpForOrders=new ArrayList<>();
@@ -261,7 +294,7 @@ public class MeltOrderController implements Initializable {
         while ( rs.next() )  {
             tmpForOrders.add(new Order(rs.getInt(1),rs.getString(2),
                     rs.getDouble(3),rs.getString(4),rs.getString(5),
-                    rs.getInt(6),rs.getInt(7)));
+                    rs.getInt(6),rs.getDate(7),rs.getInt(8)));
         }
         rs.close();
         stmt.close();
@@ -297,9 +330,9 @@ public class MeltOrderController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        labelNameUser.setText(currentUserName);
         orderType.getItems().addAll("IN","OUT","Delivery");
         paymentMethod.getItems().addAll("Visa","Cash");
-
 
         columnItemName.setCellValueFactory(new PropertyValueFactory<>("Title"));
         columnPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
