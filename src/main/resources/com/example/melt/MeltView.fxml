@@ -1,184 +1,268 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1380.0" spacing="20.0" style="-fx-background-color: #C0C0C0;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.melt.MeltViewController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1380.0" spacing="20.0" style="-fx-background-color: #40E0D0;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.melt.MeltViewController">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+      <AnchorPane prefHeight="130.0" prefWidth="1380.0">
          <children>
-            <Button fx:id="Cash" alignment="CENTER" mnemonicParsing="false" onAction="#CashOnAction" prefHeight="100.0" prefWidth="150.0" style="-fx-background-image: 'C:\Users\HP\Downloads\DataBase\delete.png';;" wrapText="true">
-               <font>
-                  <Font name="Andalus" size="20.0" />
-               </font>
+            <Button fx:id="logOut" layoutX="1227.0" layoutY="19.0" mnemonicParsing="false" onAction="#logOutOnAction" style="-fx-background-color: n;">
+               <graphic>
+                  <ImageView fitHeight="84.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../ImageMeltView/logOutIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../ImageMeltView/cashierIcon.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="Menu" mnemonicParsing="false" prefHeight="123.0" prefWidth="300.0">
-               <font>
-                  <Font name="Andalus" size="20.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../ImageMeltView/menuIcon.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button mnemonicParsing="false" prefHeight="119.0" prefWidth="150.0">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../ImageMeltView/employeeIcon.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
+            </Button>
          </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+      </AnchorPane>
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1380.0" spacing="15.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="125.0" prefWidth="150.0">
-               <font>
-                  <Font name="Andalus" size="20.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../ImageMeltView/deleteOrderIcon.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button mnemonicParsing="false" prefHeight="132.0" prefWidth="140.0">
-               <font>
-                  <Font name="Andalus" size="20.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../ImageMeltView/addOrderIcon.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button mnemonicParsing="false" prefHeight="119.0" prefWidth="145.0">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../ImageMeltView/addEmployeeIcon.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="Employee" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Andalus" size="20.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../ImageMeltView/billRateIcon.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="233.0" prefWidth="783.0">
-         <children>
-            <GridPane hgap="5.0" prefHeight="196.0" prefWidth="300.0" vgap="5.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0">
                <children>
-                  <Button fx:id="Total" mnemonicParsing="false" onAction="#totalOnAction" prefHeight="133.0" prefWidth="150.0" text="Total">
+                  <Button fx:id="Cash" alignment="CENTER" mnemonicParsing="false" onAction="#CashOnAction" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: n;" wrapText="true">
+                     <font>
+                        <Font name="Andalus" size="20.0" />
+                     </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../ImageMeltView/financialReportIcon.png" />
+                              <Image url="@../../../ImageMeltView/cashierIcon.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="Month" mnemonicParsing="false" onAction="#monthlyOnAction" prefHeight="127.0" prefWidth="150.0" text="Month" GridPane.rowIndex="1">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../ImageMeltView/financialReportIcon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="Year" mnemonicParsing="false" onAction="#yearlyOnAction" prefHeight="128.0" prefWidth="150.0" text="Year" GridPane.columnIndex="1">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../ImageMeltView/financialReportIcon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="Day" mnemonicParsing="false" onAction="#dailyOnAction" prefHeight="117.0" prefWidth="189.0" text="Day" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../ImageMeltView/financialReportIcon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                  <Text stroke="#fcfcfc" strokeType="OUTSIDE" strokeWidth="3.0" text="Cash" textAlignment="CENTER">
+                     <font>
+                        <Font name="Verdana Bold Italic" size="24.0" />
+                     </font>
+                  </Text>
                </children>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </GridPane>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="141.0" prefWidth="300.0">
+               <children>
+                  <Button fx:id="Menu" mnemonicParsing="false" prefHeight="123.0" prefWidth="300.0" style="-fx-background-color: n;">
+                     <font>
+                        <Font name="Andalus" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../ImageMeltView/menuIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text stroke="WHITE" strokeType="OUTSIDE" strokeWidth="3.0" text="Menu" textAlignment="CENTER">
+                     <font>
+                        <Font name="Verdana Bold Italic" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="119.0" prefWidth="150.0" style="-fx-background-color: n;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../ImageMeltView/employeeIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text stroke="WHITE" strokeType="OUTSIDE" strokeWidth="3.0" text="Show Employees" textAlignment="CENTER" wrappingWidth="154.515625">
+                     <font>
+                        <Font name="Verdana Bold Italic" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1380.0" spacing="15.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="125.0" prefWidth="150.0" style="-fx-background-color: n;">
+                     <font>
+                        <Font name="Andalus" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../ImageMeltView/deleteOrderIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text layoutX="10.0" layoutY="146.0" stroke="#fcfcfc" strokeType="OUTSIDE" strokeWidth="3.0" text="Delete Order" textAlignment="CENTER" wrappingWidth="145.716796875">
+                     <font>
+                        <Font name="Verdana Bold Italic" size="22.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="132.0" prefWidth="140.0" style="-fx-background-color: n;">
+                     <font>
+                        <Font name="Andalus" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../ImageMeltView/addOrderIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text stroke="#fcfcfc" strokeType="OUTSIDE" strokeWidth="3.0" text="Add Items" textAlignment="CENTER" wrappingWidth="113.3369140625">
+                     <font>
+                        <Font name="Verdana Bold Italic" size="22.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="119.0" prefWidth="150.0" style="-fx-background-color: n;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../ImageMeltView/addEmployeeIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text stroke="#fcfcfc" strokeType="OUTSIDE" strokeWidth="3.0" text="Add Employee" textAlignment="CENTER" wrappingWidth="131.30419921875">
+                     <font>
+                        <Font name="Verdana Bold Italic" size="22.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1380.0" spacing="15.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="Total" mnemonicParsing="false" onAction="#totalOnAction" prefHeight="133.0" prefWidth="150.0" style="-fx-background-color: n;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../ImageMeltView/financialReportIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text stroke="#fcfcfc" strokeType="OUTSIDE" strokeWidth="3.0" text="Total Report" textAlignment="CENTER" wrappingWidth="140.076171875">
+                     <font>
+                        <Font name="Verdana Bold Italic" size="22.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="174.0" prefWidth="170.0">
+               <children>
+                  <Button fx:id="Year" mnemonicParsing="false" onAction="#yearlyOnAction" prefHeight="128.0" prefWidth="150.0" style="-fx-background-color: n;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../ImageMeltView/financialReportIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text stroke="#fcfcfc" strokeType="OUTSIDE" strokeWidth="3.0" text="Yearly Report" textAlignment="CENTER" wrappingWidth="165.0498046875">
+                     <font>
+                        <Font name="Verdana Bold Italic" size="22.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="Month" mnemonicParsing="false" onAction="#monthlyOnAction" prefHeight="127.0" prefWidth="150.0" style="-fx-background-color: n;" textAlignment="CENTER">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../ImageMeltView/financialReportIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text stroke="#fcfcfc" strokeType="OUTSIDE" strokeWidth="3.0" text="Monthly Report" textAlignment="CENTER" wrappingWidth="109.900390625">
+                     <font>
+                        <Font name="Verdana Bold Italic" size="22.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="Day" mnemonicParsing="false" onAction="#dailyOnAction" prefHeight="117.0" prefWidth="189.0" style="-fx-background-color: n;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../ImageMeltView/financialReportIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text stroke="#fcfcfc" strokeType="OUTSIDE" strokeWidth="3.0" text="daily Report" textAlignment="CENTER" wrappingWidth="129.900390625">
+                     <font>
+                        <Font name="Verdana Bold Italic" size="22.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
          </children></HBox>
    </children>
 </VBox>

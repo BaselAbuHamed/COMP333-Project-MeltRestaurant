@@ -13,6 +13,12 @@ public class Users {
         this.userRuleId=userRule;
     }
 
+    public Users( String userName, String password, int userRule) {
+        this.userName= userName;
+        this.password = password;
+        this.userRuleId=userRule;
+    }
+
     public int getUserId() {
         return userId;
     }

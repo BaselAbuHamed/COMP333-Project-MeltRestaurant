@@ -48,8 +48,6 @@ public class MeltLogInController {
     private TextField UserName;
     private static int loginIdAutoIncreament=0;
     LogIn tm;
-    @FXML
-    private static Connection con;
 
     @FXML
     void LogIn(ActionEvent event) throws ClassNotFoundException, IOException, SQLException {
@@ -59,7 +57,6 @@ public class MeltLogInController {
 
         String tmpName=UserName.getText();
         String tmpPassword=Passward.getText();
-
         int tmpUserId=0;
         int flag=0;
 
@@ -91,17 +88,14 @@ public class MeltLogInController {
                 //sending log in data to database
                 tm=new LogIn(loginIdAutoIncreament,new Date(),tmpUserId);//here we need use id
                 logInArrayList.add(tm);
-                //  System.out.println(logInArrayList.toString());
 
                 String s = String.valueOf(tm.getLoginDate().getYear()+'-' + tm.getLoginDate().getMonth()+'-' + tm.getLoginDate().getDay());
                 String SQL="insert into Login values("+loginIdAutoIncreament+","+s+","+tm.getUserId()+");";
 
-                connectDB();
-                System.out.println("Connection established");
-                PreparedStatement preparedStatement=con.prepareStatement(SQL);
+                Connector.a.connectDB();
+                PreparedStatement preparedStatement=Connector.a.connectDB().prepareStatement(SQL);
                 preparedStatement.execute();preparedStatement.close();
-                con.close();
-                System.out.println("Connection closed");
+                Connector.a.connectDB().close();
                 break;
 
             }
@@ -112,20 +106,14 @@ public class MeltLogInController {
         }
 
     }
-    public static void connectDB() throws ClassNotFoundException, SQLException {
 
-        String URL = "127.0.0.1";
-        String port = "3306";
-        String dbName = "melt2";
-        String dbURL = "jdbc:mysql://" + URL + ":" + port + "/" + dbName + "?verifyServerCertificate=false";
-        Properties p = new Properties();
-        String dbUsername = "root";
-        p.setProperty("user", dbUsername);
-        String dbPassword = "1232002";
-        p.setProperty("password", dbPassword);
-        p.setProperty("useSSL", "false");
-        p.setProperty("autoReconnect", "true");
-        Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection (dbURL, p);
+    @FXML
+    void createAccountOnAction(ActionEvent event) throws IOException {
+        Parent root= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltCreateAccount.fxml")));
+        Scene scene=new Scene(root);
+        Stage primaryStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
+        primaryStage.show();
     }
 }
