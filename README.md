@@ -1,4 +1,4 @@
- <H1 align="center" > <strong> COMP33 Project </strong> </H1>
+ <H1 align="center" > <strong> COMP333 Project </strong> </H1>
 
  <H2 align="center" > <strong>Melt Restaurant System </strong> </H2>
  
