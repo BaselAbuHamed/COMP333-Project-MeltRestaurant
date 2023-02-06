@@ -2,7 +2,7 @@
 
  <H2 align="center" > <strong>Melt Restaurant System </strong> </H2>
  ***
- ![icon](https://user-images.githubusercontent.com/107325485/216978939-882860ea-9103-433b-8d39-3c518b261e9d.png)
+ ![meltlogo](https://user-images.githubusercontent.com/107325485/216979384-56c886d7-9603-4a9f-bec6-60715ceb00fb.jpg)
  
  ***
   <details align="center">
