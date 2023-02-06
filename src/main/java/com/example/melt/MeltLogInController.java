@@ -12,13 +12,10 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.Objects;
-import java.util.Properties;
 
 import static com.example.melt.HelloApplication.logInArrayList;
 import static com.example.melt.HelloApplication.usersArrayList;
@@ -30,7 +27,7 @@ public class MeltLogInController {
     public static int currentUserRole=0;
     public static String currentUserName ="";
 
-    public static ObservableList<LogIn> logIns= FXCollections.observableArrayList(logInArrayList);
+    public static ObservableList<com.example.melt.LogIn> logIns= FXCollections.observableArrayList(logInArrayList);
 
     @FXML
     private Hyperlink CreateNewAccount;
@@ -93,8 +90,9 @@ public class MeltLogInController {
                 String SQL="insert into Login values("+loginIdAutoIncreament+","+s+","+tm.getUserId()+");";
 
                 Connector.a.connectDB();
-                PreparedStatement preparedStatement=Connector.a.connectDB().prepareStatement(SQL);
-                preparedStatement.execute();preparedStatement.close();
+                PreparedStatement preparedStatement= Connector.a.connectDB().prepareStatement(SQL);
+                preparedStatement.execute();
+                preparedStatement.close();
                 Connector.a.connectDB().close();
                 break;
 

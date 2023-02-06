@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1380.0" spacing="12.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.melt.DeleteOrderController">
+   <children>
+      <HBox prefHeight="23.0" prefWidth="1529.0" spacing="9.0" style="-fx-background-color: grey;" />
+      <HBox fx:id="hbox" prefHeight="26.0" prefWidth="728.0" spacing="5.0">
+         <children>
+            <Region prefHeight="29.0" prefWidth="0.0" />
+            <TextField fx:id="phoneNumberTF" prefHeight="47.0" prefWidth="201.0" promptText="phoneNumber" style="-fx-border-color: trn; -fx-border-color: #383838; -fx-border-width: 0px 0px 2px 0px;" />
+            <ImageView fitHeight="31.0" fitWidth="67.0" onMouseClicked="#searchOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../ImageDeleteOrder/loupe.png" />
+               </image>
+            </ImageView>
+            <Region prefHeight="31.0" prefWidth="776.0" />
+            <TextField fx:id="userNameTF" prefHeight="59.0" prefWidth="201.0" promptText="userName" />
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+      </HBox>
+      <HBox prefHeight="670.0" prefWidth="800.0">
+         <children>
+            <TableView fx:id="orderTable" editable="true" prefHeight="543.0" prefWidth="1553.0">
+               <columns>
+                  <TableColumn fx:id="orderId" minWidth="0.0" prefWidth="0.0" text="order Id" />
+                  <TableColumn fx:id="orderType" prefWidth="100.00000250339508" text="order Type" />
+                  <TableColumn fx:id="totalPrice" prefWidth="194.66663360595703" text="total Price" />
+                  <TableColumn fx:id="paymentMethod" prefWidth="174.6666259765625" text="payment Method" />
+                  <TableColumn fx:id="address" prefWidth="517.3333740234375" text="address" />
+                  <TableColumn fx:id="phoneNumber" minWidth="0.0" prefWidth="209.99993896484375" text="phone Number" />
+                  <TableColumn fx:id="order_date" minWidth="0.0" prefWidth="172.6666259765625" text="order_date" />
+                  <TableColumn fx:id="userId" minWidth="0.0" onEditCommit="#userIdOnEDIT" prefWidth="150.666748046875" text="UserId" />
+               </columns>
+            </TableView>
+         </children>
+      </HBox>
+      <HBox prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#DeleteOnAction" prefHeight="46.0" prefWidth="1300.0" style="-fx-background-color: lightGreen;" text="Delete">
+               <font>
+                  <Font name="Forte" size="18.0" />
+               </font>
+               <effect>
+                  <InnerShadow blurType="ONE_PASS_BOX" />
+               </effect>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#backOnAction" prefHeight="46.0" prefWidth="81.0" text="back" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

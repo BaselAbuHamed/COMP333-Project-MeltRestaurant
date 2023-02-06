@@ -3,7 +3,6 @@ package com.example.melt;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -48,16 +47,16 @@ public class MeltCreateAccountController {
 
         int accessLevel = 0;
 
-        if(adminAL.isSelected())
-            accessLevel=1;
+        if (adminAL.isSelected())
+            accessLevel = 1;
 
-        else if(employeeAL.isSelected())
-            accessLevel=2;
+        else if (employeeAL.isSelected())
+            accessLevel = 2;
 
-        Users tmp=new Users(userName.getText(),passward.getText(),accessLevel);
+        Users tmp = new Users(userName.getText(), passward.getText(), accessLevel);
 
         //check the password:
-        int check=0;
+        int check = 0;
 
         for (Users users : usersArrayList) {
             if ((tmp.getPassword().equals(users.getPassword()))) {
@@ -67,7 +66,7 @@ public class MeltCreateAccountController {
         }
 
         //make sure that rule id exist:
-        int flag=0;
+        int flag = 0;
         for (Rules rules : rulesArrayList) {
             if (tmp.getUserRuleId() == rules.getRuleId()) {
                 flag = 1;
@@ -83,7 +82,7 @@ public class MeltCreateAccountController {
                             "'," + accessLevel + ");";
 
                     Connector.a.connectDB();
-                    Statement stmt =Connector.a.connectDB().createStatement();
+                    Statement stmt = Connector.a.connectDB().createStatement();
                     stmt.executeUpdate(SQL);
                     stmt.close();
                     Connector.a.connectDB().close();
@@ -100,9 +99,9 @@ public class MeltCreateAccountController {
 
     @FXML
     void backOnAction(ActionEvent event) throws IOException {
-        Parent root=FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltLogIn.fxml")));
-        Scene scene=new Scene(root);
-        Stage primaryStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltLogIn.fxml")));
+        Scene scene = new Scene(root);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();

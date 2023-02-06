@@ -17,6 +17,14 @@ public class Employees  {
         this.userId = userId;
     }
 
+    public Employees(String name, String email, double dept, int phoneNumber, int userId) {
+        this.employeeName = name;
+        this.email = email;
+        this.dept = dept;
+        this.phoneNumber = phoneNumber;
+        this.userId = userId;
+    }
+
     public int getId() {
         return Id;
     }

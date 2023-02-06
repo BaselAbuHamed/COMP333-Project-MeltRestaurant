@@ -98,7 +98,7 @@ public class MeltFinancialReportTotalController implements Initializable {
         System.out.println(itemsQuantitiesArrayList.toString());
         rs.close();
         stmt.close();
-        Connector.a.connectDB().close();
+        Connector.a.connectDB();
     }
 
     private static void getTotalPrice() throws SQLException, ClassNotFoundException {

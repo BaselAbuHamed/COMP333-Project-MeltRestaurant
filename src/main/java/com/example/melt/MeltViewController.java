@@ -63,6 +63,7 @@ public class MeltViewController implements Initializable {
         primaryStage.setMaximized(true);
         primaryStage.show();
     }
+
     @FXML
     void monthlyOnAction(ActionEvent event) throws IOException {
         Parent root= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltFinancialReportMonthly.fxml")));
@@ -72,6 +73,7 @@ public class MeltViewController implements Initializable {
         primaryStage.setMaximized(true);
         primaryStage.show();
     }
+
     @FXML
     void dailyOnAction(ActionEvent event) throws IOException {
         Parent root= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltFinancialReportDaily.fxml")));
@@ -98,7 +100,47 @@ public class MeltViewController implements Initializable {
         Scene scene=new Scene(root);
         Stage primaryStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
+        primaryStage.setMaximized(true);
+        primaryStage.show();
+    }
+
+    @FXML
+    void deleteOrderOnAction(ActionEvent event) throws IOException {
+        Parent root=FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DeleteOrder.fxml")));
+        Scene scene=new Scene(root);
+        Stage primaryStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
+        primaryStage.show();
+    }
+
+    @FXML
+    void addItemOnAction(ActionEvent event) throws IOException {
+        Parent root=FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltNewOrderOrItem.fxml")));
+        Scene scene=new Scene(root);
+        Stage primaryStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
+        primaryStage.show();
+    }
+
+    @FXML
+    void showEmployeeOnAction(ActionEvent event) throws IOException {
+        Parent root=FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltEmployee.fxml")));
+        Scene scene=new Scene(root);
+        Stage primaryStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
+        primaryStage.show();
+    }
+
+    @FXML
+    void addEmployeeOnAction(ActionEvent event) throws IOException {
+        Parent root=FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltEditEmployee.fxml")));
+        Scene scene=new Scene(root);
+        Stage primaryStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 

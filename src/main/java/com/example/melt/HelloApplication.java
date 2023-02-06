@@ -28,7 +28,7 @@ public class HelloApplication extends Application {
         Parent root=FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MeltLogIn.fxml")));
         Scene scene = new Scene(root);
         stage.setTitle("Melt Application");
-        stage.setResizable(false);
+        stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();
     }

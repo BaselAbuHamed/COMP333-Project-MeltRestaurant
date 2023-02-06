@@ -57,33 +57,9 @@
                   </Text>
                </children>
             </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="141.0" prefWidth="300.0">
-               <children>
-                  <Button fx:id="Menu" mnemonicParsing="false" prefHeight="123.0" prefWidth="300.0" style="-fx-background-color: n;">
-                     <font>
-                        <Font name="Andalus" size="20.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../ImageMeltView/menuIcon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Text stroke="WHITE" strokeType="OUTSIDE" strokeWidth="3.0" text="Menu" textAlignment="CENTER">
-                     <font>
-                        <Font name="Verdana Bold Italic" size="24.0" />
-                     </font>
-                  </Text>
-               </children>
-            </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="119.0" prefWidth="150.0" style="-fx-background-color: n;">
+                  <Button mnemonicParsing="false" onAction="#showEmployeeOnAction" prefHeight="119.0" prefWidth="150.0" style="-fx-background-color: n;">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -108,7 +84,7 @@
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="125.0" prefWidth="150.0" style="-fx-background-color: n;">
+                  <Button fx:id="deleteOrder" mnemonicParsing="false" onAction="#deleteOrderOnAction" prefHeight="125.0" prefWidth="150.0" style="-fx-background-color: n;">
                      <font>
                         <Font name="Andalus" size="20.0" />
                      </font>
@@ -132,7 +108,7 @@
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="132.0" prefWidth="140.0" style="-fx-background-color: n;">
+                  <Button fx:id="addItem" mnemonicParsing="false" onAction="#addItemOnAction" prefHeight="132.0" prefWidth="140.0" style="-fx-background-color: n;">
                      <font>
                         <Font name="Andalus" size="20.0" />
                      </font>
@@ -156,7 +132,7 @@
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="119.0" prefWidth="150.0" style="-fx-background-color: n;">
+                  <Button mnemonicParsing="false" onAction="#addEmployeeOnAction" prefHeight="119.0" prefWidth="150.0" style="-fx-background-color: n;">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
