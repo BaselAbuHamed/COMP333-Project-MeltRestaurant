@@ -2,7 +2,6 @@
 
  <H2 align="center" > <strong>Melt Restaurant System </strong> </H2>
  ***
- ![image](https://user-images.githubusercontent.com/107325485/216979384-56c886d7-9603-4a9f-bec6-60715ceb00fb.jpg)
  
  ***
   <details align="center">
